@@ -16,6 +16,8 @@ public:
     explicit UDP(QWidget *parent = 0);
     ~UDP();
 
+    void readUdp_data(void);
+
 private slots:
     void on_Listen_Btn_clicked();
 
@@ -25,11 +27,16 @@ private slots:
 
     void on_leSend_returnPressed();
 
+
+
 private:
     Ui::UDP *ui;
     QUdpSocket *UdpSend;
     QUdpSocket *UdpRev;
     void Init(void);
+    QHostAddress clientIp;
+    unsigned int clientPort;
+    unsigned int serverPort;
 
 };
 
